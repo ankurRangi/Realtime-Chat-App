@@ -29,4 +29,4 @@
 
 
 ## Part 03: Database Setup
-1. 
+1. Login to Upstash for Reddis Database.
