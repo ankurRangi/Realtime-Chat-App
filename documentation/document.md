@@ -14,13 +14,13 @@
 4. Try the server.
 
 
-## Part 02: Button Component Setup
-1. Create components/ui/Button.tsx file under **src** folder.
+## Part 02: Button Component Created
+1. Created components/ui/Button.tsx file under **src** folder.
 
 2. Button.tsx component can be user with variants using a library `npm install class-variance-authority`
-3. Register the new component variant.
+3. Registered the new component variant.
 
-4. Update **interface** with extends other React component and variant (with **VariantProps** library) if you need to add values to IntelliSense.
+4. Updated **interface** with extends other React component and variant (with **VariantProps** library) if you need to add values to IntelliSense.
 
 5. For "Conditional Classes", use the function created in `src/lib/util.ts`, use `npm install clsx tailwind-merge1` library.
 
@@ -28,5 +28,13 @@
 
 
 
-## Part 03: Database Setup
-1. Login to Upstash for Reddis Database.
+## Part 03: Database Setup done
+1. Login to Upstash.com for Reddis Database.
+
+2. Created a database and saved the URL and Token variable in .env.local file
+
+3. Connect to the database, use `npm install @upstash/redis` library and create a new { Redis } variable with .env variables.
+
+
+## Part 04: Authentication
+1. 
