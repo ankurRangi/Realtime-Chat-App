@@ -37,4 +37,25 @@
 
 
 ## Part 04: Authentication
-1. 
+1. Install the library `npm install --save next-auth`
+
+2. Create a file `src/pages/api/auth/[...nextauth].ts` any request that is sent to auth is gonna handled by this file.
+
+3. Create a `auth.ts` library under `src/lib` to export authOptions, Install `npm install @next-auth/upstash-redis-adapter`, it will automically add the data to the database if someone authorise with "login with google" we dont have to worry about it.
+
+4. Now we add [NextAuthOptions](https://next-auth.js.org/configuration/options#session)
+
+    a. **Adapter** - To make the DB interaction happen automatically whenever someone logins. If you want to [create an adapter](https://next-auth.js.org/tutorials/creating-a-database-adapter)
+
+    b. **Session** - Choose how you want to save the user session. The default is `"jwt"`, stored in the session cookie. 
+
+    c. **Pages** - Set auth routes like `/login`
+
+    d. **Providers** - SignIn other options like GoogleProvider etc.
+
+    e. **Callbacks** - Async functions you can use to control what happens when an action is performed. Ex: 
+    
+        `jwt` - called whenever a jwt is created or updated
+        `session` - called whenever a session is checked
+        `redirect` - called anytime user is redirected to a callback URL
+        `signIn` - callback to control if a user is allowed to sign in.
