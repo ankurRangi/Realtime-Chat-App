@@ -59,3 +59,21 @@
         `session` - called whenever a session is checked
         `redirect` - called anytime user is redirected to a callback URL
         `signIn` - callback to control if a user is allowed to sign in.
+
+    
+## Part 05: Setup Login Page
+
+1. Created a file `src/app/login/page.tsx` and Added login with Google functionality
+
+2. Added Google Client ID and Secret
+
+3. Notification pop up feature added using  `npm install react-hot-toast`, and created Providers.tsx component `components/ui` file to add add IntelliSense after updating children under root layout.tsx file in `src/app/layout.tsx` with `<Providers />`
+
+4. If you want to create your own secret, open command prompt and install openssl and use `openssl genrsa 2048`
+
+
+## Part 06: Adding/Inviting friends to Chat App
+
+1. 
+
+

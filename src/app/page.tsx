@@ -6,6 +6,6 @@ export default async function Home() {
 
   return (
     // <div className="text-red-500">Hello World</div>
-    <Button></Button>
+    <Button>Home</Button>
   )
 }
