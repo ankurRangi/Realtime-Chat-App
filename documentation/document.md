@@ -76,4 +76,10 @@
 
 1. Created a addFriend/page.tsx file underdashboard with calls a `<AddFriendButton />`
 
+2. Component added for **AddFriendButton** which takes input from user as a email to connect with other user and start the chat.
+
+3. Use `npm install @tailwindcss/forms` to update the design in margins and add the plugins: [require('@tailwindcss/forms')] in `../tailwind.config.js`
+
+4. Now add `npm install react-hook-form @hookform/resolvers zod axios` for input validation with zod and connection with axios.
+
 
