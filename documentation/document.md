@@ -74,6 +74,6 @@
 
 ## Part 06: Adding/Inviting friends to Chat App
 
-1. 
+1. Created a addFriend/page.tsx file underdashboard with calls a `<AddFriendButton />`
 
 
