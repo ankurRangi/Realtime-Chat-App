@@ -5,7 +5,8 @@ Building an end-to-end application for real-time chat with peers.
 ## Tech Stack:
   1. Next.js
   2. TypeScript
-  3. Redis Database via Upstash
+  3. Tailwind CSS
+  4. Redis Database via Upstash
 
 ## Features of the application:
   1. All chats/messages are real-time, without delay
