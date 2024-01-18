@@ -1,3 +1,21 @@
+# Realtime Chat Application
+
+Building an end-to-end application for real-time chat with peers.
+
+## Tech Stack:
+  1. Next.js
+  2. TypeScript
+  3. Redis Database via Upstash
+
+## Features of the application:
+  1. All chats/messages are real-time, without delay
+  2. Authentication via next-auth and login providers includes Google
+  3. Animated loader pop-up for better UI using the `lucid-react` library
+  4. Add a friend to chat via Email.
+  5. All the routes are protected
+  6. 
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
