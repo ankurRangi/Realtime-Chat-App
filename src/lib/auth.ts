@@ -1,9 +1,10 @@
 // Responsible for all the authentication we do in our Application
 
-import { UpstashRedisAdapter } from "@next-auth/upstash-redis-adapter";
-import { NextAuthOptions } from "next-auth";
-import { db } from "./db";
-import GoogleProvider from "next-auth/providers/google";
+import { UpstashRedisAdapter } from '@next-auth/upstash-redis-adapter';
+import { NextAuthOptions } from 'next-auth';
+import { db } from './db';
+import GoogleProvider from 'next-auth/providers/google';
+import { randomBytes, randomUUID } from 'crypto';
 
 // Function to retrive google credentials
 function getGoogleCredentials() {
@@ -11,10 +12,10 @@ function getGoogleCredentials() {
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
 
   if (!clientId || clientId.length === 0) {
-    throw new Error("Missin GOOGLE_CLIENT_ID");
+    throw new Error('Missin GOOGLE_CLIENT_ID');
   }
   if (!clientSecret || clientSecret.length === 0) {
-    throw new Error("Missin GOOGLE_CLIENT_SECRET");
+    throw new Error('Missin GOOGLE_CLIENT_SECRET');
   }
 
   return { clientId, clientSecret };
@@ -22,13 +23,13 @@ function getGoogleCredentials() {
 
 export const authOptions: NextAuthOptions = {
   adapter: UpstashRedisAdapter(db), //DB interaction will happen automatically
+  secret: process.env.NEXTAUTH_SECRET,
+
   session: {
-    // How you want to save the user session, JWT session
-    strategy: "jwt",
-    maxAge: 30 * 24 * 60 * 60, // 30 days = 2592000 seconds
+    strategy: 'jwt',
   },
   pages: {
-    signIn: "/login",
+    signIn: '/login',
   },
   providers: [
     GoogleProvider({
@@ -38,7 +39,7 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async jwt({ token, user }) {
-      const dbUser = (await db.get(`user:${user}`)) as User | null; // Create a interface User in types/db.d.ts file
+      const dbUser = (await db.get(`user:${token.id}`)) as User | null; // Create a interface User in types/db.d.ts file
 
       if (!dbUser) {
         token.id = user!.id; // user! signifies we know the value of user is not null
@@ -65,7 +66,7 @@ export const authOptions: NextAuthOptions = {
     },
     // Redirect to /dashboard after login
     redirect() {
-      return "/dashboard";
+      return '/dashboard';
     },
   },
 };
