@@ -49,7 +49,7 @@ export async function POST(req: Request) {
     )) as 0 | 1;
     if (isAlreadyAdded) {
       return new Response(
-        'Already added this user, waiting to get the request accepted',
+        'Already added this user, waiting for the person to accept it',
         {
           status: 400,
         }
