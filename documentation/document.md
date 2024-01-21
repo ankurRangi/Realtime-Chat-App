@@ -82,4 +82,7 @@
 
 4. Now add `npm install react-hook-form @hookform/resolvers zod axios` for input validation with zod and connection with axios.
 
+5. Component added for **AddFriendButton** which takes input from user as a email to connect with other user and start the chat.
+
+
 
