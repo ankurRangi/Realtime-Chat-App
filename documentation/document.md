@@ -82,7 +82,7 @@
 
 4. Now add `npm install react-hook-form @hookform/resolvers zod axios` for input validation with zod and connection with axios.
 
-5. 
+
 
 
 
