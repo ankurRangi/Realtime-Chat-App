@@ -74,13 +74,21 @@
 
 ## Part 06: Adding/Inviting friends to Chat App
 
-1. Created a addFriend/page.tsx file underdashboard with calls a `<AddFriendButton />`
+1. Created a addFriend/page.tsx file under (dashboard) with calls a `<AddFriendButton />`
 
 2. Component added for **AddFriendButton** which takes input from user as a email to connect with other user and start the chat.
 
-3. Use `npm install @tailwindcss/forms` to update the design in margins and add the plugins: [require('@tailwindcss/forms')] in `../tailwind.config.js`
+3. Use `npm install @tailwindcss/forms` to update the design in margins and add the plugins: [require('@tailwindcss/forms')] in `../tailwind.config.js` file.
 
 4. Now add `npm install react-hook-form @hookform/resolvers zod axios` for input validation with zod and connection with axios.
+
+5. Add a zod validation to the input email to addFriend at `src\lib\validation\add-friend.ts`
+
+6. Create the logic for adding a friend at `api\friends\add\route.ts`
+
+7. Create a helper function to connect with redis `helper\redis.ts`
+
+8. 
 
 
 

@@ -76,7 +76,7 @@ const AddFriendButton: FC<AddFriendButtonProps> = ({}) => {
       {isSuccess ? (
         <p className="mt-1 text-sm text-green-600">
           Friend request sent!
-          {toast.success('Friend request sent!')}
+          {/* {toast.success('Friend request sent!')} */}
         </p>
       ) : null}
     </form>

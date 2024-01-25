@@ -2,26 +2,29 @@ import { fetchRedis } from '@/helpers/redis';
 import { authOptions } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { addFriendValidator } from '@/lib/validation/add-friend';
-import { getServerSession } from 'next-auth'
-import zod from 'zod'
+import { getServerSession } from 'next-auth';
+import zod from 'zod';
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
     const { email: emailToAdd } = addFriendValidator.parse(body.email);
 
-    const RESTResponse = await fetch(
-      `${process.env.UPSTASH_REDIS_REST_URL}/get/user:email:${emailToAdd}`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.UPSTASH_REDIS_REST_TOKEN}`,
-        },
-        cache: 'no-store',
-      }
-    );
+    // const RESTResponse = await fetch(
+    //   `${process.env.UPSTASH_REDIS_REST_URL}/get/user:email:${emailToAdd}`,
+    //   {
+    //     headers: {
+    //       Authorization: `Bearer ${process.env.UPSTASH_REDIS_REST_TOKEN}`,
+    //     },
+    //     cache: 'no-store',
+    //   }
+    // );
 
-    const data = (await RESTResponse.json()) as { result: string };
-    const idToAdd = data.result;
+    // const data = (await RESTResponse.json()) as { result: string };
+    const idToAdd = (await fetchRedis(
+      'get',
+      `user:email:${emailToAdd}`
+    )) as string;
 
     if (!idToAdd) {
       return new Response('This person does not exist.', { status: 400 });
@@ -70,6 +73,7 @@ export async function POST(req: Request) {
 
     // Sent friend request
     // database.set-add()
+    console.log('Sending request after verifying ...');
     db.sadd(`user:${idToAdd}:incoming_friend_request`, session.user.id);
 
     return new Response('OK');
