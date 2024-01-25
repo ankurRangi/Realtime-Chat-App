@@ -86,9 +86,12 @@
 
 6. Create the logic for adding a friend at `api\friends\add\route.ts`
 
-7. Create a helper function to connect with redis `helper\redis.ts`
+7. Create a helper function to connect with redis `helper\redis.ts`, which will input commands with args and return the output based on the command.
 
-8. 
+
+## Layout for Incomming Friend Requests.
+
+1. 
 
 
 
