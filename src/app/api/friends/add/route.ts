@@ -31,6 +31,7 @@ export async function POST(req: Request) {
     }
 
     const session = await getServerSession(authOptions);
+    
     console.log('Session  :');
     console.log(session);
 
