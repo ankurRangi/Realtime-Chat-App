@@ -21,6 +21,7 @@ export async function POST(req: Request) {
     // );
 
     // const data = (await RESTResponse.json()) as { result: string };
+    
     const idToAdd = (await fetchRedis(
       'get',
       `user:email:${emailToAdd}`
